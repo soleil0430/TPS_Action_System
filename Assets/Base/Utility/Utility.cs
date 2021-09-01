@@ -1,10 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Reflection;
 
-public static class Utility 
+
+public static class Utility
 {
-    public static Vector3 GetHitPoint(Collider me, Collider other) => (other.ClosestPoint(me.transform.position));
-    public static Vector3 GetHitNormal(Collider me, Collider other) => (GetHitPoint(me, other));
+    public static string[] GetInterfaceList(string _namespace)
+    {
+        List<string> list = new List<string>();
+        List<Type> typeList = new List<Type>();
+        foreach (Type t in Assembly.GetExecutingAssembly().GetTypes())
+        {
+            if (t.Namespace == "GameMessage" && t.IsInterface)
+            {
+                list.Add(t.Name);
+            }
+        }
+
+        return list.ToArray();
+    }
+
 
 }
