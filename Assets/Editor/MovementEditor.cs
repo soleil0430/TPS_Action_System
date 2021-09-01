@@ -12,6 +12,8 @@ public class MovementEditor : Editor
     SerializedProperty straight;
     SerializedProperty decided;
     SerializedProperty bezier3;
+    SerializedProperty guided;
+    SerializedProperty wayPoint;
 
     private void OnEnable()
     {
@@ -20,6 +22,8 @@ public class MovementEditor : Editor
         straight = serializedObject.FindProperty("straightMover");
         decided = serializedObject.FindProperty("decidedMover");
         bezier3 = serializedObject.FindProperty("bezier3Mover");
+        guided = serializedObject.FindProperty("guidedMover");
+        wayPoint = serializedObject.FindProperty("wayPointMover");
 
         movement.SetIMover();
     }
@@ -48,6 +52,12 @@ public class MovementEditor : Editor
             case EMover.Bezier3:
                 property = bezier3;
                 break;
+            case EMover.Guided:
+                property = guided;
+                break;
+            case EMover.WayPoint:
+                property = wayPoint;
+                break;
             default:
                 break;
         }
@@ -64,8 +74,8 @@ public class MovementEditor : Editor
         }
 
 
-        GUILayout.Space(50);
-        base.OnInspectorGUI();
+        //GUILayout.Space(50);
+        //base.OnInspectorGUI();
     }
 
 

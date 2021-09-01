@@ -6,10 +6,12 @@ namespace Move
 {
     public enum EMover
     {
-        None,
-        Straight,
+        None = -1,
+        Straight = 0,
         Decided,
         Bezier3,
+        Guided,
+        WayPoint,
     }
 
     public interface IMover

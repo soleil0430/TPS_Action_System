@@ -7,12 +7,16 @@ namespace Move
     [System.Serializable]
     public class StraightMover : IMover
     {
-        public float speed;
-        public Vector3 forward;
+        [Min(0f)] public float speed;
+        public Vector3 direction;
 
         public void Move(Rigidbody _body)
         {
-            nowPos = _body.position = _body.position + forward * speed * Time.deltaTime;
+            _body.position = _body.position + direction * speed * Time.deltaTime;
+
+#if UNITY_EDITOR
+            nowPos = _body.position;
+#endif
         }
 
 #if UNITY_EDITOR
@@ -20,7 +24,7 @@ namespace Move
         public void DrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(nowPos, nowPos + forward * speed);
+            Gizmos.DrawLine(nowPos, nowPos + direction * speed);
         }
 #endif
     }
