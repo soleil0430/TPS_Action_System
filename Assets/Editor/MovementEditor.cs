@@ -4,79 +4,79 @@ using UnityEngine;
 using UnityEditor;
 using Move;
 
-[CustomEditor(typeof(Movement))]
-public class MovementEditor : Editor
+//[CustomEditor(typeof(Movement))]
+public class MovementEditor// : Editor
 {
-    Movement movement;
+//    Movement movement;
 
-    SerializedProperty straight;
-    SerializedProperty decided;
-    SerializedProperty bezier3;
-    SerializedProperty guided;
-    SerializedProperty wayPoint;
+//    SerializedProperty straight;
+//    SerializedProperty decided;
+//    SerializedProperty bezier3;
+//    SerializedProperty guided;
+//    SerializedProperty wayPoint;
 
-    private void OnEnable()
-    {
-        movement = target as Movement;
+//    private void OnEnable()
+//    {
+//        movement = target as Movement;
 
-        straight = serializedObject.FindProperty("straightMover");
-        decided = serializedObject.FindProperty("decidedMover");
-        bezier3 = serializedObject.FindProperty("bezier3Mover");
-        guided = serializedObject.FindProperty("guidedMover");
-        wayPoint = serializedObject.FindProperty("wayPointMover");
+//        straight = serializedObject.FindProperty("straightMover");
+//        decided = serializedObject.FindProperty("decidedMover");
+//        bezier3 = serializedObject.FindProperty("bezier3Mover");
+//        guided = serializedObject.FindProperty("guidedMover");
+//        wayPoint = serializedObject.FindProperty("wayPointMover");
 
-        movement.SetIMover();
-    }
+//        movement.SetIMover();
+//    }
 
-    SerializedProperty property;
-    public override void OnInspectorGUI()
-    {
-        EditorGUI.BeginChangeCheck();
-        movement.eMover = (EMover)EditorGUILayout.EnumPopup("Mover Type", movement.eMover);
-        if (EditorGUI.EndChangeCheck())
-        {
-            movement.SetIMover();
-        }
+//    SerializedProperty property;
+//    public override void OnInspectorGUI()
+//    {
+//        EditorGUI.BeginChangeCheck();
+//        movement.eMover = (EMover)EditorGUILayout.EnumPopup("Mover Type", movement.eMover);
+//        if (EditorGUI.EndChangeCheck())
+//        {
+//            movement.SetIMover();
+//        }
 
-        switch (movement.eMover)
-        {
-            case EMover.None:
-                property = null;
-                break;
-            case EMover.Straight:
-                property = straight;
-                break;
-            case EMover.Decided:
-                property = decided;
-                break;
-            case EMover.Bezier3:
-                property = bezier3;
-                break;
-            case EMover.Guided:
-                property = guided;
-                break;
-            case EMover.WayPoint:
-                property = wayPoint;
-                break;
-            default:
-                break;
-        }
+//        switch (movement.eMover)
+//        {
+//            case EMover.None:
+//                property = null;
+//                break;
+//            case EMover.Straight:
+//                property = straight;
+//                break;
+//            case EMover.Decided:
+//                property = decided;
+//                break;
+//            case EMover.Bezier3:
+//                property = bezier3;
+//                break;
+//            case EMover.Guided:
+//                property = guided;
+//                break;
+//            case EMover.WayPoint:
+//                property = wayPoint;
+//                break;
+//            default:
+//                break;
+//        }
 
-        EditorGUI.BeginChangeCheck();
-        if (property != null)
-        {
-            EditorGUILayout.PropertyField(property, new GUIContent(movement.eMover.ToString()));
-        }
+//        EditorGUI.BeginChangeCheck();
+//        if (property != null)
+//        {
+//            EditorGUILayout.PropertyField(property, new GUIContent(movement.eMover.ToString()));
+//        }
 
-        if (EditorGUI.EndChangeCheck())
-        {
-            serializedObject.ApplyModifiedProperties();
-        }
+//        if (EditorGUI.EndChangeCheck())
+//        {
+//            serializedObject.ApplyModifiedProperties();
+//        }
 
 
-        //GUILayout.Space(50);
-        //base.OnInspectorGUI();
-    }
+//        //GUILayout.Space(50);
+//        //base.OnInspectorGUI();
+//    }
 
 
     
