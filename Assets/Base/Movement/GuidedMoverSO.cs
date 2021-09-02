@@ -35,7 +35,8 @@ namespace Move
             }
 
             velocity = rDirection * speed;
-            _body.position = _body.position + velocity * Time.deltaTime;
+
+            _body.MovePosition(_body.position + velocity * Time.deltaTime);
 
             nowPos = _body.position;
         }

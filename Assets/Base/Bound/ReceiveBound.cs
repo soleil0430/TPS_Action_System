@@ -9,7 +9,7 @@ namespace Bound
     public class ReceiveBound : MonoBehaviour
     {
         [GetComponentInParent, DisableField] protected Character character;
-        [SerializeField] List<ReceiveProcessSO> processSOs;
+        [SerializeField] public List<ReceiveProcessSO> processSOs;
 
 
         protected virtual void Awake()

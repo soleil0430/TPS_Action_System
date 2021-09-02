@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    [GetComponent] public CharacterController cController;
+    
 
-    public bool isGround;
+    [Header("Editor")]
+    [GetComponent, DisableField] public CharacterController cController;
     public float groundCheckerY;
     public LayerMask groundMask;
-
-    public Vector3 velocity;
-    public float velocityX;
-    public float velocityY;
-    public float velocityZ;
-    public Vector3 forward;
     public bool useGravity;
     public float extraGravityY;
+
+    [Header("Runtime")]
+    [DisableField] public bool isGround;
+    [DisableField] public Vector3 velocity;
+    [DisableField] public float velocityX;
+    [DisableField] public float velocityY;
+    [DisableField] public float velocityZ;
+    [DisableField] public Vector3 forward;
+    
 
     private void Awake()
     {

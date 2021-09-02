@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd414fdc821cb541b62ada8d278dfc7, type: 3}
   m_Name: Straight MoverSO
   m_EditorClassIdentifier: 
-  speed: 0
-  direction: {x: 0, y: 0, z: 0}
+  speed: 3
+  direction: {x: 0, y: 0, z: 1}
+  rSpeed: 3
+  rDirection: {x: 0, y: 0, z: 1}

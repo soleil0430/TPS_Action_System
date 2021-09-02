@@ -20,7 +20,7 @@ namespace Move
 
         public override void Move(Rigidbody _body)
         {
-            _body.position = _body.position + rDirection * rSpeed * Time.deltaTime;
+            _body.MovePosition(_body.position + rDirection * rSpeed * Time.deltaTime); 
             nowPos = _body.position;
         }
 

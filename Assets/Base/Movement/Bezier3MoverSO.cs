@@ -38,7 +38,7 @@ namespace Move
 
             Vector3 ___e = Vector3.Lerp(__s, __e, _delta);
 
-            _body.position = ___e;
+            _body.MovePosition(___e);
 
             rDelta += Time.deltaTime;
         }

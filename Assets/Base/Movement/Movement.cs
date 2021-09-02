@@ -16,7 +16,7 @@ namespace Move
             GetComponentAttributeSetter.DoUpdate_GetComponentAttribute(this);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             moverSO?.Move(rigidbody);
         }

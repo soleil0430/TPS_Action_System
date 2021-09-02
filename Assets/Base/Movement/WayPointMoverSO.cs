@@ -33,7 +33,7 @@ namespace Move
 
             rDirection = toPoint.normalized;
 
-            _body.position = _body.position + rDirection * rSpeed * Time.deltaTime;
+            _body.MovePosition(_body.position + rDirection * rSpeed * Time.deltaTime);
             nowPos = _body.position;
         }
 

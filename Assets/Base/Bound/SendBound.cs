@@ -24,7 +24,6 @@ namespace Bound
             ReceiveBound rBound = other.GetComponent<ReceiveBound>();
             if (rBound)
             {
-                Debug.Log("name: " + other.name);
                 foreach (var process in processSOs)
                 {
                     process.Process(creator, collider, other);

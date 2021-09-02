@@ -27,8 +27,8 @@ namespace Move
             if (rDelta <= rDuration)
             {
                 Vector3 toEnd = rEnd - rStart;
-                _body.position = rStart + toEnd * (rCurve.Evaluate(rDelta / rDuration));
-
+                
+                _body.MovePosition(rStart + toEnd * (rCurve.Evaluate(rDelta / rDuration)));
                 rDelta += Time.deltaTime;
             }
         }

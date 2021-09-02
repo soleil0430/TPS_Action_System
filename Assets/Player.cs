@@ -16,6 +16,8 @@ public class Player : Character
     [Min(0f)] public float accelerationGround;
     [Min(0f)] public float accelerationAir;
 
+    [Min(0f)] public float jumpHeight;
+
     private void Awake()
     {
         GetComponentAttributeSetter.DoUpdate_GetComponentAttribute(this);
@@ -36,34 +38,17 @@ public class Player : Character
         controller.Forwarding(inputDirection, _acceleration);
 
         if (Input.GetKeyDown(KeyCode.Space))
-            controller.Jump(3f);
+            controller.Jump(jumpHeight);
     }
 
 
     public override void GetDamage(DamageMessage msg)
     {
-        Debug.Log("Damaged!");
-        
-        if (msg.receiveCreator)
-            Debug.Log("Receive Creator : " + msg.receiveCreator.name);
 
-        Debug.Log("Receiver : " + msg.receiver.name);
-        Debug.Log("Sender : " + msg.sender.name);
-
-        Debug.Log("Damage : " + msg.damage);
-        Debug.Log("==============");
     }
 
     public override void GetSlow(SlowMessage msg)
     {
-        Debug.Log("Slow! =====");
-        if (msg.receiveCreator)
-            Debug.Log("Receive Creator : " + msg.receiveCreator.name);
 
-        Debug.Log("Receiver : " + msg.receiver.name);
-        Debug.Log("Sender : " + msg.sender.name);
-
-        Debug.Log("Slow : " + msg.slow);
-        Debug.Log("==============");
     }
 }
