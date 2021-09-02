@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Reflection;
+using GameMessage;
 
 public class Player : Character
 {
@@ -38,4 +39,31 @@ public class Player : Character
             controller.Jump(3f);
     }
 
+
+    public override void GetDamage(DamageMessage msg)
+    {
+        Debug.Log("Damaged!");
+        
+        if (msg.receiveCreator)
+            Debug.Log("Receive Creator : " + msg.receiveCreator.name);
+
+        Debug.Log("Receiver : " + msg.receiver.name);
+        Debug.Log("Sender : " + msg.sender.name);
+
+        Debug.Log("Damage : " + msg.damage);
+        Debug.Log("==============");
+    }
+
+    public override void GetSlow(SlowMessage msg)
+    {
+        Debug.Log("Slow! =====");
+        if (msg.receiveCreator)
+            Debug.Log("Receive Creator : " + msg.receiveCreator.name);
+
+        Debug.Log("Receiver : " + msg.receiver.name);
+        Debug.Log("Sender : " + msg.sender.name);
+
+        Debug.Log("Slow : " + msg.slow);
+        Debug.Log("==============");
+    }
 }

@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed29fcc84c5682942bdc75e8c849d3e9, type: 3}
-  m_Name: Way Point MoverSO
+  m_Script: {fileID: 11500000, guid: ab92f9bdacab3d44895aa56d88c06256, type: 3}
+  m_Name: Slow ReceiveSO
   m_EditorClassIdentifier: 
-  wayPoints: []
-  speed: 0
-  rWayPoints: []
-  rSpeed: 0
+  slowMultiple: 0
+  rSlowMultiple: 0

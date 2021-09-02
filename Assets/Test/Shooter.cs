@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Move;
 
+
+
 public class Shooter : MonoBehaviour
 {
     public GameObject prefab;
@@ -15,6 +17,7 @@ public class Shooter : MonoBehaviour
     public float speed;
 
 
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
