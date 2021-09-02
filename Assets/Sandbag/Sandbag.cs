@@ -43,7 +43,6 @@ public class Sandbag : Character
 
     public override void GetDamage(DamageMessage msg)
     {
-        Debug.Log(msg.damage);
         nowHp -= msg.damage;
 
         if (nowHp <= 0f)

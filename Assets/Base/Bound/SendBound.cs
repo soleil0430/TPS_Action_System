@@ -11,13 +11,13 @@ namespace Bound
         public GameObject creator;
         public List<SendProcessSO> processSOs;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             GetComponentAttributeSetter.DoUpdate_GetComponentAttribute(this);
         }
 
 
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             ReceiveBound rBound = other.GetComponent<ReceiveBound>();
             if (rBound)

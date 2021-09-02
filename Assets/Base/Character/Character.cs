@@ -12,6 +12,7 @@ public abstract class Character : MonoBehaviour, IDamage, ISlow
 
     public virtual void GetSlow(SlowMessage msg) { }
 
+
     //public virtual void GetSlow(SlowMessage msg, ReceiveBound body)
     //{
     //    Debug.Log("Get Slow");

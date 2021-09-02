@@ -59,6 +59,8 @@ public class Player : Character
     private void LateUpdate()
     {
         animator.SetFloat("fMoveAmount", controller.velocity.magnitude / speed);
+        animator.SetFloat("AttackMultipiler", attackSpeed);
+
     }
 
 
