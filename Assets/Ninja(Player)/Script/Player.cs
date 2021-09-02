@@ -7,51 +7,57 @@ using GameMessage;
 
 public class Player : Character
 {
-    [GetComponent] Controller controller;
-    [GetComponent] Animator animator;
+    static string movementState = "Movement";
+    static string attack1State = "Attack1";
+    static string attack2State = "Attack2";
+    static string attack3State = "Attack3";
 
-    public Vector3 inputDirection = new Vector3();
+    bool IsState(string tag) => animator.GetCurrentAnimatorStateInfo(0).IsTag(tag);
 
+
+    [GetComponent] public Controller controller;
+    [GetComponent] public Animator animator;
+
+    
     [Min(0f)] public float speedAirMultiple;
-    [Min(0f)] public float speed;
     [Min(0f)] public float accelerationGround;
     [Min(0f)] public float accelerationAir;
-
+    [Min(0f)] public float runSpeed;
+    [Min(0f)] public float dodgeSpeed;
     [Min(0f)] public float jumpHeight;
+    [Min(1f)] public float attackSpeed;
+
+
+    [DisableField] public float speed;
+    [DisableField] public float accelerationMovement;
+    [DisableField] public float accelerationForward;
+
+    [DisableField] public Vector3 inputDirection = new Vector3();
 
     private void Awake()
     {
         GetComponentAttributeSetter.DoUpdate_GetComponentAttribute(this);
+
+        Utility.SetBehaviour<Player>(animator, this);
+
+        //animator.GetCurrentAnimatorStateInfo(0).IsTag(movementState);
     }
 
 
     private void Update()
     {
         controller.IsGround();
-        float _acceleration = controller.isGround ? accelerationGround : accelerationAir;
-        float _speed = controller.isGround ? speed : speed * speedAirMultiple;
 
         inputDirection.x = Input.GetAxisRaw("Horizontal");
         inputDirection.z = Input.GetAxisRaw("Vertical");
         inputDirection.Normalize();
 
-        controller.Move(inputDirection, _speed, _acceleration);
-        controller.Forwarding(inputDirection, _acceleration);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            controller.Jump(jumpHeight);
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            animator.SetTrigger("tAttack");
+        animator.SetBool("bIsGround", controller.isGround);
     }
 
 
-    public Vector3 direction;
-    public float mag;
     private void LateUpdate()
     {
-        //animator.SetFloat("fHorizontal", controller.velocityX / speed);
-        //animator.SetFloat("fVertical", controller.velocityZ / speed);
         animator.SetFloat("fMoveAmount", controller.velocity.magnitude / speed);
     }
 

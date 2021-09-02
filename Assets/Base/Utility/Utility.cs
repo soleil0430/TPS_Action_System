@@ -22,4 +22,15 @@ public static class Utility
         return list.ToArray();
     }
 
+
+    public static void SetBehaviour<T>(Animator _animator, T _entity) where T : MonoBehaviour
+    {
+        MecanimState<T>[] stateArray = _animator.GetBehaviours<MecanimState<T>>();
+        foreach (MecanimState<T> state in stateArray)
+        {
+            state.entity = _entity;
+        }
+    }
+
+
 }

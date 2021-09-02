@@ -17,13 +17,7 @@ public class PlayerEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
-
-        Vector3 o = new Vector2();
-        o.x = 1;
-        o.y = 1;
-        o.Normalize();
-        Debug.Log(o.x);
+        DrawDefaultInspector();
 
         GUILayout.Space(20);
         if (GUILayout.Button("Open Receive Bound Window"))

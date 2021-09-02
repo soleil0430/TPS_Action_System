@@ -1,4 +1,6 @@
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
 
 [CustomPropertyDrawer(typeof(DisableFieldAttribute))]
@@ -11,3 +13,4 @@ internal sealed class DisableFieldDrawer : PropertyDrawer
         EditorGUI.EndDisabledGroup();
     }
 }
+#endif

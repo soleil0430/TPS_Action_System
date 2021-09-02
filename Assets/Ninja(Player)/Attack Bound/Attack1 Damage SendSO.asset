@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41d330cc71a90b547afe087a928ad89c, type: 3}
-  m_Name: Damage SendSO
+  m_Name: Attack1 Damage SendSO
   m_EditorClassIdentifier: 
   msg:
     receiveCreator: {fileID: 0}

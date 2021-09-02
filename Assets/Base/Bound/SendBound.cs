@@ -14,8 +14,6 @@ namespace Bound
         private void Awake()
         {
             GetComponentAttributeSetter.DoUpdate_GetComponentAttribute(this);
-
-            ((DamageSendSO)processSOs[0]).rMsg.damage = 0;
         }
 
 
