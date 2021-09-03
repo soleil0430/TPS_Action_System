@@ -14602,7 +14602,7 @@ GameObject:
   - component: {fileID: 3656583187483486978}
   - component: {fileID: 3719712128268336586}
   - component: {fileID: 5034498705826094164}
-  - component: {fileID: 1355682400684426475}
+  - component: {fileID: 695188687109709006}
   m_Layer: 0
   m_Name: Projectile 15
   m_TagString: Untagged
@@ -19596,7 +19596,7 @@ MonoBehaviour:
   creator: {fileID: 0}
   processSOs:
   - {fileID: 11400000, guid: eb69c7f82f4e3f04196e1de2aab66296, type: 2}
---- !u!114 &1355682400684426475
+--- !u!114 &695188687109709006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19605,7 +19605,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3637667656466340462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ceaf21c122860f428d7efe934d80f7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 33c47450aa93a7a4a96f4adb7c4f5d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverSO: {fileID: 11400000, guid: 340d85dd8f84a8e408ac509571e033c2, type: 2}
+  target: {fileID: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
+  speed: 0
+  direction: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}

@@ -4,8 +4,8 @@ using UnityEngine;
 using System;
 using System.Reflection;
 using GameMessage;
+using Movement;
 using Bound;
-using Move;
 
 public class Player : Character
 {
@@ -78,9 +78,12 @@ public class Player : Character
         SendBound sBound = shuriken.GetComponent<SendBound>();
         sBound.creator = gameObject;
 
-        Movement movement = shuriken.GetComponent<Movement>();
-        StraightMoverSO moverSO = movement.moverSO as StraightMoverSO;
-        moverSO.rDirection = shurikenMuzzle.forward;
+        //Movement movement = shuriken.GetComponent<Movement>();
+        //StraightMoverSO moverSO = movement.moverSO as StraightMoverSO;
+        //moverSO.rDirection = shurikenMuzzle.forward;
+
+        StraightMovement movement = shuriken.GetComponent<StraightMovement>();
+        movement.direction = shurikenMuzzle.forward;
     }
 
     public override void GetDamage(DamageMessage msg)
