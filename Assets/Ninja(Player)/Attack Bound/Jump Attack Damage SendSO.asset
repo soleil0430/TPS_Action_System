@@ -20,7 +20,7 @@ MonoBehaviour:
     hitNormal: {x: 0, y: 0, z: 0}
     isIncludeMe: 0
     invincibleTime: 0
-    damage: 0
+    damage: 5
   rMsg:
     receiveCreator: {fileID: 0}
     sender: {fileID: 0}
@@ -29,4 +29,4 @@ MonoBehaviour:
     hitNormal: {x: 0, y: 0, z: 0}
     isIncludeMe: 0
     invincibleTime: 0
-    damage: 0
+    damage: 5

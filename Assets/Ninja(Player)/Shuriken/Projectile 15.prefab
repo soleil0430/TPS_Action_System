@@ -14601,6 +14601,8 @@ GameObject:
   - component: {fileID: 3745954804150020570}
   - component: {fileID: 3656583187483486978}
   - component: {fileID: 3719712128268336586}
+  - component: {fileID: 5034498705826094164}
+  - component: {fileID: 1355682400684426475}
   m_Layer: 0
   m_Name: Projectile 15
   m_TagString: Untagged
@@ -19413,7 +19415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605a456cfc02f6b499a64717539a27e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 0
   hitOffset: 0.1
   UseFirePointRotation: 0
   rotationOffset: {x: 0, y: 0, z: 0}
@@ -19557,14 +19559,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3637667656466340462}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &3719712128268336586
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19573,8 +19575,37 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3637667656466340462}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5034498705826094164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637667656466340462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573fae8a5c5babe41ad8531e48f3b533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 0}
+  creator: {fileID: 0}
+  processSOs:
+  - {fileID: 11400000, guid: eb69c7f82f4e3f04196e1de2aab66296, type: 2}
+--- !u!114 &1355682400684426475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637667656466340462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ceaf21c122860f428d7efe934d80f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moverSO: {fileID: 11400000, guid: 340d85dd8f84a8e408ac509571e033c2, type: 2}

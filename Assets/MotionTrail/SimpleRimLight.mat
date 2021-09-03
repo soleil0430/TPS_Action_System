@@ -18,10 +18,22 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_4C89D172: 0.3
+    - Vector1_4C89D172: 0.06
     - _CumstomValue: 0
     m_Colors:
-    - Color_3DC82D0D: {r: 3.6479769, g: 1.1509035, b: 1.0068415, a: 0}
+    - Color_3DC82D0D: {r: 0, g: 503.958, b: 1024, a: 1}
   m_BuildTextureStacks: []

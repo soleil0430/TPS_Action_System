@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using System.Reflection;
 using GameMessage;
+using Bound;
+using Move;
 
 public class Player : Character
 {
@@ -17,8 +19,12 @@ public class Player : Character
 
     [GetComponent, DisableField] public Controller controller;
     [GetComponent, DisableField] public Animator animator;
+
+    [SerializeField] public Transform shurikenMuzzle;
     [SerializeField] public MotionTrail motionTrail;
-    
+
+    [SerializeField] public GameObject shurikenPrefab;
+
     [Min(0f)] public float speedAirMultiple;
     [Min(0f)] public float accelerationGround;
     [Min(0f)] public float accelerationAir;
@@ -66,6 +72,16 @@ public class Player : Character
     }
 
 
+    public void ThrowShuriken()
+    {
+        GameObject shuriken = Instantiate(shurikenPrefab, shurikenMuzzle.position, shurikenMuzzle.rotation);
+        SendBound sBound = shuriken.GetComponent<SendBound>();
+        sBound.creator = gameObject;
+
+        Movement movement = shuriken.GetComponent<Movement>();
+        StraightMoverSO moverSO = movement.moverSO as StraightMoverSO;
+        moverSO.rDirection = shurikenMuzzle.forward;
+    }
 
     public override void GetDamage(DamageMessage msg)
     {
