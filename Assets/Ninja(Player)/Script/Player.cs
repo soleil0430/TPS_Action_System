@@ -78,10 +78,6 @@ public class Player : Character
         SendBound sBound = shuriken.GetComponent<SendBound>();
         sBound.creator = gameObject;
 
-        //Movement movement = shuriken.GetComponent<Movement>();
-        //StraightMoverSO moverSO = movement.moverSO as StraightMoverSO;
-        //moverSO.rDirection = shurikenMuzzle.forward;
-
         StraightMovement movement = shuriken.GetComponent<StraightMovement>();
         movement.direction = shurikenMuzzle.forward;
     }
