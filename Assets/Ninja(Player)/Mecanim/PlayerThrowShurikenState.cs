@@ -15,6 +15,9 @@ public class PlayerThrowShurikenState : MecanimState<Player>
             return;
 
 
+        entity.controller.Forwarding(entity.inputDirection, entity.accelerationForward);
+
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
             animator.SetTrigger("tThrowShuriken");
     }
