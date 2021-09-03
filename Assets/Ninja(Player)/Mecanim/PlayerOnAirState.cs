@@ -27,6 +27,9 @@ public class PlayerOnAirState : MecanimState<Player>
 
         entity.controller.Move(entity.inputDirection, entity.speed, entity.accelerationMovement);
         entity.controller.Forwarding(entity.inputDirection, entity.accelerationForward);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            animator.SetTrigger("tAttack");
     }
 
 }

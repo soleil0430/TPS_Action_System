@@ -15,9 +15,9 @@ public class Player : Character
     bool IsState(string tag) => animator.GetCurrentAnimatorStateInfo(0).IsTag(tag);
 
 
-    [GetComponent] public Controller controller;
-    [GetComponent] public Animator animator;
-
+    [GetComponent, DisableField] public Controller controller;
+    [GetComponent, DisableField] public Animator animator;
+    [SerializeField] public MotionTrail motionTrail;
     
     [Min(0f)] public float speedAirMultiple;
     [Min(0f)] public float accelerationGround;
@@ -61,6 +61,8 @@ public class Player : Character
         animator.SetFloat("fMoveAmount", controller.velocity.magnitude / speed);
         animator.SetFloat("AttackMultipiler", attackSpeed);
 
+        Vector2 velocityXZ = new Vector2(controller.velocityX, controller.velocityZ);
+        motionTrail.onTrail = (velocityXZ.magnitude > runSpeed * 1.2f);
     }
 
 

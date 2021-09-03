@@ -30,6 +30,7 @@ public class PlayerDodgeState : MecanimState<Player>
         endMoveTime = stateInfo.length * endMoveTimePer;
 
         endDelta = endMoveTime - startDelta;
+
     }
 
 
@@ -53,7 +54,15 @@ public class PlayerDodgeState : MecanimState<Player>
         entity.accelerationForward = accelerationForward;
         entity.controller.Forwarding(entity.inputDirection, entity.accelerationForward);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+            entity.controller.Jump(entity.jumpHeight);
+
         timer += Time.deltaTime;
+
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            animator.SetTrigger("tAttack");
+
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

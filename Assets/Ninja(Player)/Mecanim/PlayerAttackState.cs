@@ -61,6 +61,9 @@ public class PlayerAttackState : MecanimState<Player>
         if (Input.GetKeyDown(KeyCode.LeftShift))
             animator.SetTrigger("tDodge");
 
+        if (Input.GetKeyDown(KeyCode.Space))
+            entity.controller.Jump(entity.jumpHeight);
+
         timer += Time.deltaTime;
     }
 
