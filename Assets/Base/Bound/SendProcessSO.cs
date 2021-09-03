@@ -7,7 +7,7 @@ namespace Bound
 {
     public abstract class SendProcessSO : ScriptableObject
     {
-        public abstract void Process(GameObject senderCreator, Collider sender, Collider receiver);
+        public abstract void Process(GameObject senderCreator, Collider sender, Collider receiver, AttackDirection attackDirection);
 
         protected Vector3 GetHitPoint(Collider sender, Collider other)
         {

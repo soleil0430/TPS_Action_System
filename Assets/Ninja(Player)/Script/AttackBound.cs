@@ -26,7 +26,7 @@ namespace Bound
             {
                 foreach (var process in processSOs)
                 {
-                    process.Process(creator, collider, other);
+                    process.Process(creator, collider, other, attackDirection);
                 }
                 impulseSource.GenerateImpulse();
             }

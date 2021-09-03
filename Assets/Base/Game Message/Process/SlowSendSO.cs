@@ -16,11 +16,12 @@ namespace Bound
         [DisableField] public SlowMessage rMsg;
 
 
-        public override void Process(GameObject creator, Collider sender, Collider receiver)
+        public override void Process(GameObject creator, Collider sender, Collider receiver, AttackDirection attackDirection)
         {
             ReceiveBound rBound = receiver.GetComponent<ReceiveBound>();
             SlowMessage sMsg = new SlowMessage(creator, sender.gameObject, receiver.gameObject,
                                                GetHitPoint(sender, receiver), GetHitNormal(sender, receiver),
+                                               attackDirection,
                                                rMsg.slow);
 
             rBound.Receive(sMsg);

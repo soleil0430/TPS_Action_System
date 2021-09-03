@@ -19,6 +19,7 @@ public class Player : Character
 
     [GetComponent, DisableField] public Controller controller;
     [GetComponent, DisableField] public Animator animator;
+    [GetComponent, DisableField] public AudioSource audioSource;
 
     [SerializeField] public Transform shurikenMuzzle;
     [SerializeField] public MotionTrail motionTrail;
@@ -90,5 +91,11 @@ public class Player : Character
     public override void GetSlow(SlowMessage msg)
     {
 
+    }
+
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

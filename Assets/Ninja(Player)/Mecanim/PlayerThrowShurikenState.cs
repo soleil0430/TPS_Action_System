@@ -15,6 +15,9 @@ public class PlayerThrowShurikenState : MecanimState<Player>
             return;
 
 
+        entity.speed = 0f;
+
+        entity.controller.Move(entity.inputDirection, entity.speed, entity.accelerationMovement);
         entity.controller.Forwarding(entity.inputDirection, entity.accelerationForward);
 
 

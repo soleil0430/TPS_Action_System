@@ -17,8 +17,9 @@ namespace GameMessage
         public DamageMessage(GameObject _receiveCreator,
                             GameObject _sender, GameObject _receiver,
                             Vector3 _hitPoint, Vector3 _hitNormal,
+                            AttackDirection _attackDirection,
                             bool _isIncludeMe, float _invincibleTime, float _damage)
-            : base(_receiveCreator, _sender, _receiver, _hitPoint, _hitNormal)
+            : base(_receiveCreator, _sender, _receiver, _hitPoint, _hitNormal, _attackDirection)
         {
             isIncludeMe = _isIncludeMe;
             invincibleTime = _invincibleTime;
@@ -30,6 +31,7 @@ namespace GameMessage
             DamageMessage msg = new DamageMessage(receiveCreator,
                                                   sender, receiver,
                                                   hitPoint, hitNormal,
+                                                  attackDirection,
                                                   isIncludeMe, invincibleTime, damage);
 
             return msg;

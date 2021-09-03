@@ -15,11 +15,12 @@ namespace Bound
         [Header("RunTime")]
         [DisableField] public DamageMessage rMsg;
 
-        public override void Process(GameObject creator, Collider sender, Collider receiver)
+        public override void Process(GameObject creator, Collider sender, Collider receiver, AttackDirection attackDirection)
         {
             ReceiveBound rBound = receiver.GetComponent<ReceiveBound>();
             DamageMessage dMsg = new DamageMessage(creator, sender.gameObject, receiver.gameObject,
                                                     GetHitPoint(sender, receiver), GetHitNormal(sender, receiver),
+                                                    attackDirection,
                                                     rMsg.isIncludeMe, rMsg.invincibleTime, rMsg.damage);
 
             rBound.Receive(dMsg);

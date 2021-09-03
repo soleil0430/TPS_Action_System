@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameMessage;
 
 namespace Bound
 {
@@ -9,6 +10,7 @@ namespace Bound
     {
         [GetComponent, DisableField] public Collider collider;
         public GameObject creator;
+        public AttackDirection attackDirection;
         public List<SendProcessSO> processSOs;
 
         protected virtual void Awake()
@@ -24,7 +26,7 @@ namespace Bound
             {
                 foreach (var process in processSOs)
                 {
-                    process.Process(creator, collider, other);
+                    process.Process(creator, collider, other, attackDirection);
                 }
             }
         }

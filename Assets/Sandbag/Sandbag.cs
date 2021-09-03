@@ -51,7 +51,7 @@ public class Sandbag : Character
         color = new Color(1f, nowHp / maxHp, nowHp / maxHp);
 
         render.material.color = color;
-        body.AddForce(-msg.hitNormal * msg.damage * knockback, ForceMode.VelocityChange);
+        body.AddForce(msg.attackDirection.GetDirection(transform) * msg.damage * knockback, ForceMode.VelocityChange);
     }
 
 }
