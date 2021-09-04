@@ -12,7 +12,7 @@ public class BodySetterWindow : EditorWindow
     static void Open()
     {
         BodySetterWindow window = GetWindow<BodySetterWindow>();
-        
+
         window.Show();
     }
 
@@ -20,14 +20,12 @@ public class BodySetterWindow : EditorWindow
     public List<Transform> hasBounds = new List<Transform>();
     public List<Transform> hasNotBounds = new List<Transform>();
 
-    public List<ReceiveProcessSO> receiveProcessSOs = new List<ReceiveProcessSO>();
 
     ScriptableObject thisWindow;
     SerializedObject so;
-    
+
     SerializedProperty pHasBounds;
     SerializedProperty pHasNotBounds;
-    SerializedProperty pReceiveProcessSOs;
 
     void OnGUI()
     {
@@ -38,7 +36,7 @@ public class BodySetterWindow : EditorWindow
 
         pHasBounds = so.FindProperty("hasBounds");
         pHasNotBounds = so.FindProperty("hasNotBounds");
-        pReceiveProcessSOs = so.FindProperty("receiveProcessSOs");
+        //pReceiveProcessSOs = so.FindProperty("receiveProcessSOs");
 
 
         if (target)
@@ -53,7 +51,7 @@ public class BodySetterWindow : EditorWindow
 
             AttatchReceiveBound();
             RemoveReceiveBound();
-            SetAllReceiveProcessSO();
+            //SetAllReceiveProcessSO();
         }
     }
 
@@ -122,44 +120,44 @@ public class BodySetterWindow : EditorWindow
     }
 
 
-    bool toggleSetAllReceive;
-    void SetAllReceiveProcessSO()
-    {
-        bool isCount = (hasBounds.Count > 0);
+    //bool toggleSetAllReceive;
+    //void SetAllReceiveProcessSO()
+    //{
+    //    bool isCount = (hasBounds.Count > 0);
 
-        EditorGUI.BeginDisabledGroup(!isCount);
-        bool flag = GUILayout.Button("Set All Receive ProcessSO");
-        EditorGUI.EndDisabledGroup();
+    //    EditorGUI.BeginDisabledGroup(!isCount);
+    //    bool flag = GUILayout.Button("Set All Receive ProcessSO");
+    //    EditorGUI.EndDisabledGroup();
 
-        if (isCount)
-        {
-            if (flag)
-            {
-                toggleSetAllReceive = true;
-            }
-        }
-        else
-        {
-            toggleSetAllReceive = false;
-        }
+    //    if (isCount)
+    //    {
+    //        if (flag)
+    //        {
+    //            toggleSetAllReceive = true;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        toggleSetAllReceive = false;
+    //    }
 
 
-        if (toggleSetAllReceive)
-        {
-            EditorGUILayout.PropertyField(pReceiveProcessSOs, true);
-            so.ApplyModifiedProperties();
+    //    if (toggleSetAllReceive)
+    //    {
+    //        EditorGUILayout.PropertyField(pReceiveProcessSOs, true);
+    //        so.ApplyModifiedProperties();
 
-            if (GUILayout.Button("Set"))
-            {
-                foreach (Transform has in hasBounds)
-                {
-                    ReceiveBound rBound = has.GetComponent<ReceiveBound>();
-                    rBound.processSOs = receiveProcessSOs.ConvertAll(o => o);
-                    
-                }
-            }
-        }
-    }
+    //        if (GUILayout.Button("Set"))
+    //        {
+    //            foreach (Transform has in hasBounds)
+    //            {
+    //                ReceiveBound rBound = has.GetComponent<ReceiveBound>();
+    //                rBound.processSOs = receiveProcessSOs.ConvertAll(o => o);
+
+    //            }
+    //        }
+    //    }
+    //}
 
 
     void RemoveReceiveBound()

@@ -1,11 +1,11 @@
-using GameMessage;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bound;
 
 public class Sandbag : Character
 {
-    [GetComponent] Rigidbody body;
+    [GetComponent, DisableField] public Rigidbody body;
 
     [SerializeField] MeshRenderer render;
 
@@ -41,8 +41,11 @@ public class Sandbag : Character
 
 
 
-    public override void GetDamage(DamageMessage msg)
+    public override bool GetDamage(DamageMessage msg)
     {
+        if (isInvincible)
+            return false;
+
         nowHp -= msg.damage;
 
         if (nowHp <= 0f)
@@ -51,7 +54,17 @@ public class Sandbag : Character
         color = new Color(1f, nowHp / maxHp, nowHp / maxHp);
 
         render.material.color = color;
-        body.AddForce(msg.attackDirection.GetDirection(transform) * msg.damage * knockback, ForceMode.VelocityChange);
+
+        OnInvincible(msg.invincibleDuration);
+        return true;
     }
 
+    public override bool GetDirection(DirectionMessage msg)
+    {
+        if (isInvincible)
+            return false;
+
+        body.AddForce(msg.direction * msg.power * knockback, ForceMode.VelocityChange);
+        return true;
+    }
 }

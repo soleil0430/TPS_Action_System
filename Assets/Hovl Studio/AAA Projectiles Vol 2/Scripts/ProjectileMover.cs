@@ -34,32 +34,26 @@ public class ProjectileMover : MonoBehaviour
         Destroy(gameObject,5);
 	}
 
-    void FixedUpdate ()
-    {
-		if (speed != 0)
-        {
-            rb.velocity = transform.forward * speed;
-            //transform.position += transform.forward * (speed * Time.deltaTime);         
-        }
-	}
 
-    //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
-    void OnCollisionEnter(Collision collision)
+    
+    void OnTriggerEnter(Collider other)
     {
         //Lock all axes movement and rotation
         rb.constraints = RigidbodyConstraints.FreezeAll;
         speed = 0;
 
-        ContactPoint contact = collision.contacts[0];
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        Vector3 pos = contact.point + contact.normal * hitOffset;
+        Vector3 hitPoint = other.ClosestPoint(transform.position);
+        Vector3 hitNormal = (other.transform.position - transform.position).normalized;
+
+        Quaternion rot = Quaternion.FromToRotation(Vector3.up, hitNormal);
+        Vector3 pos = hitPoint + hitNormal * hitOffset;
 
         if (hit != null)
         {
             var hitInstance = Instantiate(hit, pos, rot);
             if (UseFirePointRotation) { hitInstance.transform.rotation = gameObject.transform.rotation * Quaternion.Euler(0, 180f, 0); }
             else if (rotationOffset != Vector3.zero) { hitInstance.transform.rotation = Quaternion.Euler(rotationOffset); }
-            else { hitInstance.transform.LookAt(contact.point + contact.normal); }
+            else { hitInstance.transform.LookAt(hitPoint + hitNormal); }
 
             var hitPs = hitInstance.GetComponent<ParticleSystem>();
             if (hitPs != null)

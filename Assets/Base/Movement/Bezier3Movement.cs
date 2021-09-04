@@ -26,8 +26,12 @@ namespace Movement
         {
             float _timer = timer / duration;
 
-            rigidbody.MovePosition(GetInterpolatePoint(bezierPoints));
-            
+            Vector3 nextPosition = GetInterpolatePoint(bezierPoints);
+            transform.LookAt(nextPosition);
+
+            rigidbody.MovePosition(nextPosition);
+            //rigidbody.transform.forward
+
             timer += Time.deltaTime;
         }
 

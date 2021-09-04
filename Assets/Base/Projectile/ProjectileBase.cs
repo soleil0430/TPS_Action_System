@@ -17,6 +17,7 @@ namespace Projectile
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Crash");
             Destroy(gameObject);
         }
     }

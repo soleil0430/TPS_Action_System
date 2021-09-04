@@ -30,6 +30,9 @@ public class PlayerOnAirState : MecanimState<Player>
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
             animator.SetTrigger("tAttack");
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+            animator.SetTrigger("tThrowShuriken");
     }
 
 }
